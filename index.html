@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feng Shui 2 Combat Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <header>
+    <h1>Feng Shui 2 Combat Tracker</h1>
+  </header>
+  <main>
+    <div class="columns">
+      <!-- Left Column: Players -->
+      <div class="column" id="playersColumn">
+        <h2>Players</h2>
+        <ul id="pcList"></ul>
+        <h3>Player Attack</h3>
+        <form id="playerActionForm">
+          <label for="playerAttacker">Attacking PC:</label>
+          <select id="playerAttacker" required></select>
+          <label for="npcTarget">Target NPC:</label>
+          <select id="npcTarget" required></select>
+          <input type="text" id="playerRollResult" placeholder="Roll Result (e.g., 18 or 18!)" required />
+          <input type="number" id="playerModifier" placeholder="Modifier (optional)" />
+          <input type="number" id="playerWeaponDamage" placeholder="Weapon Damage" required />
+          <button type="submit">Apply Player Attack</button>
+        </form>
+      </div>
+      <!-- Right Column: NPCs -->
+      <div class="column" id="npcsColumn">
+        <h2>NPCs</h2>
+        <form id="addEnemyForm">
+          <input type="text" id="enemyName" placeholder="Enemy Name" required />
+          <label for="enemyType">Enemy Type:</label>
+          <select id="enemyType" required>
+            <option value="" disabled selected>Select Type</option>
+            <option value="mook">Mook</option>
+            <option value="featured">Featured</option>
+            <option value="boss">Boss</option>
+            <option value="uberboss">Uberboss</option>
+          </select>
+          <!-- Mook Template Dropdown -->
+          <div id="mookTemplateContainer" style="display: none;">
+            <label for="mookTemplate">Mook Template:</label>
+            <select id="mookTemplate">
+              <option value="" disabled selected>Select Mook Template</option>
+            </select>
+          </div>
+          <!-- Featured Template Dropdown -->
+          <div id="featuredTemplateContainer" style="display: none;">
+            <label for="featuredTemplate">Featured Template:</label>
+            <select id="featuredTemplate">
+              <option value="" disabled selected>Select Template</option>
+            </select>
+          </div>
+          <!-- Mook Count Input -->
+          <div id="mookCountContainer" style="display: none;">
+            <input type="number" id="mookCount" placeholder="Mook Count" value="1" required />
+          </div>
+          <button type="submit">Add Enemy</button>
+        </form>
+        <ul id="npcList"></ul>
+        <h3>NPC Attack</h3>
+        <form id="npcActionForm">
+          <label for="npcAttacker">Attacking NPC:</label>
+          <select id="npcAttacker" required></select>
+          <label for="playerTarget">Target PC:</label>
+          <select id="playerTarget" required></select>
+          <div id="npcRollPanel">
+            <button type="button" id="npcRollDiceButton">Roll Dice (NPC)</button>
+            <div id="npcRollResult"></div>
+            <input type="number" id="npcModifier" placeholder="Modifier (optional)" />
+          </div>
+          <input type="number" id="npcWeaponDamage" placeholder="Weapon Damage" required />
+          <button type="submit">Apply NPC Attack</button>
+        </form>
+      </div>
+    </div>
+    <!-- Event Log -->
+    <section id="eventLog">
+      <h2>Event Log</h2>
+      <ul id="logList"></ul>
+    </section>
+    <!-- Data Management -->
+    <section id="dataManagement">
+      <button id="exportButton">Export Data</button>
+      <input type="file" id="importFileInput" accept=".json" style="display: none;" />
+      <button id="importButton">Import Data</button>
+    </section>
+    <!-- Modal Panel for Database -->
+    <div id="dbPanel">
+      <div class="modal-content">
+        <button id="dbClose">Close</button>
+        <h3>Select Weapon</h3>
+        <ul id="weaponListDB"></ul>
+        <h3>Select Schtick</h3>
+        <ul id="schtickListDB"></ul>
+      </div>
+    </div>
+  </main>
+  <!-- Load database.js first, then script.js -->
+  <script src="database.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('Service Worker registered with scope:', registration.scope);
+        }).catch(function(error) {
+          console.log('Service Worker registration failed:', error);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
