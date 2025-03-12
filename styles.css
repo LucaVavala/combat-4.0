@@ -1,46 +1,53 @@
-/* Global Reset and Base Styles */
+/* RESET & BASE STYLES */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
+/* BODY & FONT */
 body {
-  /* Deep red background, gold-ish text for that action-cinema flair */
+  /* Dark red background, bright text for higher contrast */
   background: #6A0909;
-  color: #F9DC88; /* gold-like color */
-  font-family: "Impact", "Arial Black", Arial, sans-serif;
+  color: #FFFFFF; /* White text for strong contrast */
+  font-family: "Arial", sans-serif; /* simpler, more readable */
   line-height: 1.4;
 }
 
-/* Header */
+/* HEADER */
 header {
-  /* A bold gradient from dark red to a slightly brighter red */
+  /* Gradient from dark red to a slightly brighter red */
   background: linear-gradient(to right, #7f0000, #b51f1f);
-  color: #F9DC88;
+  color: #FFD700; /* Gold accent for the header text */
   padding: 1rem;
   text-align: center;
-  text-shadow: 1px 1px 2px #000;
-  border-bottom: 2px solid #f9dc88;
+  border-bottom: 2px solid #FFD700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
+  font-family: "Impact", "Arial Black", sans-serif;
   font-size: 2rem;
   letter-spacing: 2px;
+  text-shadow: 1px 1px 3px #000;
 }
 
-/* Main Container */
+/* MAIN CONTAINER */
 main {
   max-width: 1200px;
   margin: 1rem auto;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05); /* subtle transparency for effect */
+  background: #7f0000; /* Solid background for improved readability */
   border-radius: 5px;
-  border: 2px solid #F9DC88;
+  border: 2px solid #FFD700;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Columns Layout */
+/* COLUMNS LAYOUT */
 .columns {
   display: flex;
   flex-wrap: wrap;
@@ -48,19 +55,19 @@ main {
 }
 .column {
   flex: 1 1 45%;
-  background: rgba(255, 255, 255, 0.08);
+  background: #8B0000; /* Slightly brighter for content areas */
   padding: 1rem;
   border-radius: 5px;
-  border: 2px dashed #f9dc88;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
+  border: 2px dashed #FFD700;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Combatant Cards */
+/* COMBATANT CARDS */
 .combatantCard {
-  background: rgba(255, 255, 255, 0.15);
+  background: #B22222; /* Medium red for cards */
   padding: 1rem;
   margin-bottom: 1rem;
-  border: 1px solid #f9dc88;
+  border: 1px solid #FFD700;
   border-radius: 5px;
   width: 100%;
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
@@ -71,13 +78,14 @@ main {
 }
 .combatantCard h3 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.4rem;
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 1.3rem;
   text-align: center;
-  color: #FFD700; /* a brighter gold tone for headings */
+  color: #FFD700;
   text-shadow: 1px 1px 2px #000;
 }
 
-/* Stat Rows */
+/* STAT ROWS */
 .statRow {
   display: flex;
   justify-content: space-between;
@@ -87,6 +95,7 @@ main {
 .statRow span {
   flex: 1;
   font-size: 1rem;
+  font-weight: bold;
 }
 .statRow button {
   background: #b51f1f;
@@ -104,7 +113,7 @@ main {
   color: #b51f1f;
 }
 
-/* Remove Button */
+/* REMOVE BUTTON */
 .removeBtn {
   background: #b51f1f;
   color: #FFD700;
@@ -114,6 +123,7 @@ main {
   cursor: pointer;
   width: 100%;
   margin-top: 0.5rem;
+  font-weight: bold;
   transition: background 0.2s ease-in-out;
 }
 .removeBtn:hover {
@@ -121,7 +131,7 @@ main {
   color: #b51f1f;
 }
 
-/* Weapons and Schticks Lists */
+/* WEAPONS & SCHTICKS LISTS */
 .weaponList, .schtickList {
   margin: 0.5rem 0;
 }
@@ -146,42 +156,42 @@ main {
   transition: background 0.2s ease-in-out;
 }
 .weaponList li:hover, .schtickList li:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 215, 0, 0.2);
 }
 
-/* Modal Panel Items: Set cursor to pointer */
+/* MODAL PANEL ITEMS: SET CURSOR TO POINTER */
 #weaponListDB li, #schtickListDB li {
   cursor: pointer;
 }
 
-/* Final Attack Result Colors */
+/* FINAL ATTACK RESULT COLORS */
 .hitResult {
-  color: #90ee90; /* light green for success */
+  color: #90ee90; /* Light green for success */
   font-weight: bold;
   text-shadow: 1px 1px 2px #000;
 }
 .missResult {
-  color: #ff6961; /* salmon for miss */
+  color: #ff5252; /* Vibrant red for misses */
   font-weight: bold;
   text-shadow: 1px 1px 2px #000;
 }
 
-/* Event Log and Data Management */
+/* EVENT LOG & DATA MANAGEMENT */
 #eventLog, #dataManagement {
   margin-top: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: #8B0000;
   border-radius: 5px;
-  border: 2px dashed #f9dc88;
+  border: 2px dashed #FFD700;
   text-align: center;
-  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
 }
 #logList {
   list-style: none;
   padding: 0;
   max-height: 200px;
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.15);
+  background: #B22222;
   border: 1px solid #FFD700;
   border-radius: 5px;
   margin-top: 0.5rem;
@@ -198,6 +208,7 @@ main {
   color: #FFD700;
   border: 1px solid #FFD700;
   border-radius: 3px;
+  font-weight: bold;
   transition: background 0.2s ease-in-out;
 }
 #dataManagement button:hover {
@@ -205,7 +216,7 @@ main {
   color: #b51f1f;
 }
 
-/* Modal Panel Styles */
+/* MODAL PANEL STYLES */
 #dbPanel {
   position: fixed;
   top: 0;
@@ -215,11 +226,11 @@ main {
   display: none; /* Hidden by default */
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
 }
 #dbPanel .modal-content {
-  background: #6A0909;
+  background: #7f0000;
   padding: 1rem;
   border-radius: 5px;
   width: 90%;
@@ -239,6 +250,7 @@ main {
   cursor: pointer;
   float: right;
   margin-bottom: 0.5rem;
+  font-weight: bold;
   transition: background 0.2s ease-in-out;
 }
 #dbClose:hover {
@@ -251,7 +263,7 @@ main {
   text-shadow: 1px 1px 2px #000;
 }
 
-/* Form Styles */
+/* FORM STYLES */
 form input, form select, form button {
   width: 100%;
   padding: 0.5rem;
@@ -259,31 +271,32 @@ form input, form select, form button {
   font-size: 1rem;
   border: 1px solid #FFD700;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #B22222;
   color: #FFD700;
   outline: none;
   transition: background 0.2s ease-in-out;
 }
 form input:focus, form select:focus {
-  background: rgba(255, 255, 255, 0.2);
+  background: #8B0000;
 }
 form button {
   background: #b51f1f;
   color: #FFD700;
   border: 1px solid #FFD700;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  font-weight: bold;
 }
 form button:hover {
   background: #FFD700;
   color: #b51f1f;
 }
 
-/* Responsive Adjustments */
+/* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
   .column {
     flex: 1 1 100%;
   }
+
   header h1 {
     font-size: 1.5rem;
   }
