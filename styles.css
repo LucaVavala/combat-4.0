@@ -114,8 +114,8 @@ main {
   background: #f0f0f0;
 }
 
-/* Pointer for Modal Panel */
-#dbPanel li {
+/* Modal Panel Items: Set cursor to pointer */
+#weaponListDB li, #schtickListDB li {
   cursor: pointer;
 }
 
